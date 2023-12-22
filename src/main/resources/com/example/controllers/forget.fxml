@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.ForgetController">
+   <children>
+      <Pane layoutX="183.0" layoutY="36.0" prefHeight="220.0" prefWidth="931.0" style="-fx-background-color: #F0F3F8; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.1610942780971527" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="116.0" fitWidth="216.0" layoutX="364.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/start/logotype.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="446.0" layoutY="174.0" prefHeight="403.0" prefWidth="405.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.rightAnchor="428.4">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.1610942780971527" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TextField fx:id="inputLoginField" layoutX="91.0" layoutY="107.0" prefHeight="32.0" prefWidth="241.0" promptText="Enter Login" style="-fx-text-fill: #000000; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-radius: 10; -fx-border-width: 0.5;" />
+            <Button layoutX="87.0" layoutY="280.0" mnemonicParsing="false" onAction="#buttonSendPassword" prefHeight="42.0" prefWidth="118.0" style="-fx-background-radius: 10; -fx-background-color: #094280;" text="Send Password" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="225.0" layoutY="281.0" mnemonicParsing="false" onAction="#buttonCancelLogin" prefHeight="42.0" prefWidth="101.0" style="-fx-background-radius: 10; -fx-border-color: #094280; -fx-background-color: transparent; -fx-border-radius: 10;" text="Cancel" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="171.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Forget Page" />
+            <Line endX="11.79998779296875" layoutX="256.0" layoutY="55.0" startX="-100.0" stroke="#094280" strokeWidth="2.0" />
+            <Text fx:id="idnotification" fill="WHITE" layoutX="41.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qweqweqweqweqweqwe" textAlignment="CENTER" wrappingWidth="331.162353515625">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Text layoutX="111.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="if you have forgotten your password, please write your login here and we will send you your password!" textAlignment="CENTER" wrappingWidth="199.568603515625" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

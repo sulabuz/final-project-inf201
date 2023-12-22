@@ -1,0 +1,28 @@
+.scroll-pane{
+    -fx-background-color:transparent;
+
+}
+.scroll-pane > .viewport {  //not .scrollpane but .scroll-pane
+    -fx-background-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+/* Убираем фон вертикальной полосы прокрутки */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+/* Убираем фон трека вертикальной полосы прокрутки */
+.scroll-bar:vertical .track {
+    -fx-background-color: transparent;
+}
+/* Задаем цвет для "бегунка" вертикальной полосы прокрутки */
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffaf4d; /* Замените на желаемый цвет */
+}
+
+/* Убираем рамку у "бегунка" вертикальной полосы прокрутки */
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #ccd9d3; /* Цвет при наведении (если нужно) */
+    -fx-background-insets: 0;
+}

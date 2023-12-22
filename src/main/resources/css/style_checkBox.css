@@ -1,0 +1,17 @@
+.auto_Timer {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #000000;
+}.auto_Timer.box {
+     -fx-background-color: #f1f4f8; /* цвет фона области отметки по умолчанию */
+     -fx-border-color: transparent;
+     -fx-background-image: url('images.main/unchecked.png');
+ }
+
+.auto_Timer:selected .box {
+    -fx-background-color: derive(-fx-color, 20%);
+    -fx-scale-shape: false;
+    -fx-background-image: url('images.main/approved.png');
+}
+
+

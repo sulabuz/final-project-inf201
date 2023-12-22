@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.main.MainPage">
+   <children>
+      <Pane fx:id="MainPane" layoutX="270.0" prefHeight="720.0" prefWidth="1010.0" style="-fx-background-color: #f8faff;">
+         <children>
+            <ImageView fx:id="backgroundImageView" fitHeight="736.0" fitWidth="1303.0" layoutX="-282.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/fon/fon2.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="933.0" layoutY="633.0" onMouseClicked="#openLinkSurvey" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 50; -fx-background-color: #f1f4f8;">
+               <children>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-comment-3916603.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="TimerPane" disable="true" layoutX="671.0" layoutY="111.0" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" prefHeight="200.0" prefWidth="318.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Pane fx:id="settingPane" layoutX="10.0" layoutY="215.0" prefHeight="109.0" prefWidth="300.0">
+                     <children>
+                        <CheckBox id="auto_Timer" fx:id="auto_Timer" layoutX="14.0" layoutY="-1.0" mnemonicParsing="false" styleClass="auto_Timer" stylesheets="@../../../css/style_checkBox.css" text="Auto-transition Timer" />
+                        <TextField fx:id="setPomodoro" focusTraversable="false" layoutX="8.0" layoutY="58.0" prefHeight="25.0" prefWidth="91.0" text="20" />
+                        <TextField fx:id="setSBreak" layoutX="103.0" layoutY="58.0" onAction="#initialize" prefHeight="25.0" prefWidth="91.0" text="5" />
+                        <TextField fx:id="setLBreak" layoutX="198.0" layoutY="58.0" onAction="#initialize" prefHeight="25.0" prefWidth="91.0" text="15" />
+                        <Text layoutX="15.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodora">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="110.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Short Break">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="205.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Long Break">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text fx:id="Pomodoro" fill="#15161e" layoutX="20.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pomodoro">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+                  <Line endX="218.0001220703125" endY="-1.52587890625E-5" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+                  <Text layoutX="20.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="86.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-angle-small-down.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="130.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/winter.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="158.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/winter.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="186.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/winter.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="Start" alignment="CENTER" layoutX="139.0" layoutY="87.0" mnemonicParsing="false" onAction="#Start" prefHeight="43.0" prefWidth="70.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-width: 0.5; -fx-border-radius: 8;" text="Start">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Text fx:id="minutes" layoutX="19.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="20">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="seconds" layoutX="79.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="69.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                     <font>
+                        <Font size="45.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="SBreak" fill="#15161e" layoutX="95.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Short Brack">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+                  <Text fx:id="LBreak" fill="#15161e" layoutX="180.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Long Brack">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Text>
+                  <Line fx:id="setLine" endX="-30.0" layoutX="120.0" layoutY="186.0" startX="-100.0" stroke="#ffaf4d" strokeWidth="2.0" />
+                  <ImageView fx:id="settings" fitHeight="24.0" fitWidth="24.0" layoutX="276.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-settings.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="hideTimer" fitHeight="32.0" fitWidth="32.0" layoutX="271.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-minus-small.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="restart" fitHeight="24.0" fitWidth="24.0" layoutX="240.0" layoutY="95.0" onMouseClicked="#restartTo" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-rotate-right.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Button fx:id="Pause" alignment="CENTER" layoutX="139.0" layoutY="87.0" mnemonicParsing="false" onAction="#Pause" prefHeight="43.0" prefWidth="70.0" style="-fx-background-color: transparent; -fx-border-color: #e5e7eb; -fx-border-width: 0.5; -fx-border-radius: 8;" text="Pause" visible="false">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Line fx:id="lineSetting" endX="218.0001220703125" endY="-1.52587890625E-5" layoutX="100.0" layoutY="200.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.615686297416687" green="0.6274510025978088" blue="0.6313725709915161" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+            <Pane fx:id="taskPane" layoutX="337.0" layoutY="91.0" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" prefHeight="245.0" prefWidth="276.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Line endX="176.0" endY="-1.52587890625E-5" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+                  <ImageView fx:id="hideTask" fitHeight="32.0" fitWidth="32.0" layoutX="229.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-minus-small.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Button fx:id="Tags" alignment="CENTER" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #c6c8cc; -fx-background-radius: 8;" text="Tags" />
+                  <Pane fx:id="addTasks" layoutX="10.0" layoutY="69.0" onMouseClicked="#crateTasks" prefHeight="35.0" prefWidth="256.0" style="-fx-background-color: #bcbdc1; -fx-background-radius: 8;">
+                     <children>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/images.main/free-icon-font-add.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="#15161e" layoutX="48.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add task">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="10.0" layoutY="110.0" prefHeight="132.0" prefWidth="260.0" stylesheets="@../../../css/scrollPane.css" vbarPolicy="NEVER">
+                     <content>
+                        <VBox fx:id="listTasks" prefHeight="126.0" prefWidth="256.0" spacing="10.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.615686297416687" green="0.6274510025978088" blue="0.6313725709915161" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+            <Pane fx:id="FartunePane" disable="true" layoutX="515.0" layoutY="556.0" onMouseDragged="#handleMouseDragged" onMousePressed="#handleMousePressed" prefHeight="117.0" prefWidth="318.0" style="-fx-background-color: transparent;" visible="false">
+               <children>
+                  <ImageView fx:id="HideModeFortuna" fitHeight="21.0" fitWidth="28.0" layoutX="286.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/images.main/linewhite.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fx:id="fortunaText" fill="WHITE" layoutX="19.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Creativity gives the possibility of some sort of achievement to everyone.&quot;" wrappingWidth="293.6285400390625">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="20.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/crystal-ball-svgrepo-com.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="59.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Fortune" wrappingWidth="108.0">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="weatherPane" disable="true" layoutX="16.0" layoutY="104.0" prefHeight="191.0" prefWidth="276.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;" visible="false">
+               <children>
+                  <Line endX="176.0" endY="-1.52587890625E-5" layoutX="100.0" layoutY="60.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+                  <Text fx:id="currTime" layoutX="165.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="temp" contentDisplay="RIGHT" layoutX="20.0" layoutY="131.0" text="19">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Label>
+                  <Label fx:id="location" layoutX="103.0" layoutY="147.0" text="Almaty, Kazahstan">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="icon" fitHeight="66.0" fitWidth="66.0" layoutX="20.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="state" layoutX="94.0" layoutY="85.0" text="Weather">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="15.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.615686297416687" green="0.6274510025978088" blue="0.6313725709915161" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+         </children></Pane>
+      <Pane fx:id="MenuPane" prefHeight="730.0" prefWidth="270.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" layoutX="15.0" layoutY="129.0" prefHeight="350.0" prefWidth="239.0" stylesheets="@../../../css/scrollPane.css" vbarPolicy="ALWAYS">
+               <content>
+                  <AnchorPane prefHeight="390.0" prefWidth="227.0">
+                     <children>
+                        <VBox prefHeight="437.0" prefWidth="226.0" spacing="6.0">
+                           <children>
+                              <Pane fx:id="Dashboard" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="226.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/free-icon-font-apps.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Timer" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timer">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/free-icon-clock-12535395.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Task" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/free-icon-font-edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Notice" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notice">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/free-icon-font-megaphone.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Breather" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fx:id="Premium1" fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Breather">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/air-svgrepo-com.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Fartune" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="174.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fx:id="Premium11" fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fortuna">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/magic-stick-svgrepo-com(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="premiumNotes" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fx:id="Premium" fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Notes">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="30.0" fitWidth="31.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/notes-svgrepo-com.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Sounds" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sounds">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/sounds-between-headphones-svgrepo-com.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                              <Pane fx:id="Calender" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+                                 <children>
+                                    <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calendar">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Text>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/images.main/free-icon-font-calendar-clock.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <Line endX="169.5" endY="-7.62939453125E-6" layoutX="100.0" layoutY="85.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+            <ImageView fitHeight="102.0" fitWidth="178.0" layoutX="15.0" layoutY="-13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/images.main/logotype.png" />
+               </image>
+            </ImageView>
+            <Text fill="#606a85" layoutX="15.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Platfor Navigation">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Pane fx:id="About" layoutX="15.0" layoutY="560.0" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+               <children>
+                  <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="About us">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-world.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane fx:id="Properties" layoutX="15.0" layoutY="510.0" onMouseClicked="#switchPaneVisibility" prefHeight="42.0" prefWidth="240.0" style="-fx-background-color: transparent; -fx-background-radius: 8;">
+               <children>
+                  <Text fill="#15161e" layoutX="50.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Properties">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-settings.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Pane layoutX="30.0" layoutY="651.0" prefHeight="44.0" prefWidth="44.0" style="-fx-background-radius: 8; -fx-background-color: #ffffff;">
+               <effect>
+                  <DropShadow height="20.0" radius="9.5" width="20.0">
+                     <color>
+                        <Color red="1.0" green="0.5490196347236633" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-user.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Text fx:id="userNametext" fill="#15161e" layoutX="87.0" layoutY="671.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fx:id="userEmailtext" fill="#15161e" layoutX="88.0" layoutY="691.0" strokeType="OUTSIDE" strokeWidth="0.0" text="user_name@gmail.com">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="#606a85" layoutX="15.0" layoutY="500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Line endX="169.5" endY="-7.62939453125E-6" layoutX="100.0" layoutY="635.0" startX="-100.0" stroke="#e5e7eb" strokeWidth="2.0" />
+            <Pane fx:id="logOutPane" disable="true" layoutX="77.0" layoutY="473.0" prefHeight="35.0" prefWidth="180.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 8;" visible="false">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.615686297416687" green="0.6274510025978088" blue="0.6313725709915161" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <children>
+                  <Button layoutX="6.0" layoutY="-2.0" mnemonicParsing="false" onAction="#logOut" style="-fx-background-color: transparent;" text="log out">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Pane>
+            <Label layoutX="15.0" layoutY="610.0" text="feedback" textFill="#606a85">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+         </children>
+      </Pane>
+      <Pane fx:id="premiumWin" disable="true" prefHeight="730.0" prefWidth="1280.0" styleClass="premiumPane" stylesheets="@../../../css/backGroundPremium.css" visible="false">
+         <children>
+            <Pane fx:id="premiumPane" layoutX="454.0" layoutY="159.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;">
+               <children>
+                  <Label layoutX="155.0" layoutY="16.0" text="Get Premium">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="goBack" fitHeight="24.0" fitWidth="24.0" layoutX="18.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-angle-left.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Pane layoutX="50.0" layoutY="320.0" prefHeight="45.0" prefWidth="300.0" style="-fx-background-color: #ffaf4d; -fx-background-radius: 8;">
+                     <children>
+                        <Label layoutX="113.0" layoutY="9.0" text="\$5 / Month">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Pane>
+                  <ImageView fitHeight="184.0" fitWidth="300.0" layoutX="40.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/logotype3.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="73.0" layoutY="150.0" text="What's included:" textFill="#606a85" />
+                  <Label layoutX="108.0" layoutY="168.0" text="Notes">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="108.0" layoutY="187.0" text="Sounds">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="108.0" layoutY="206.0" text="Calendar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="108.0" layoutY="225.0" text="Something else">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="108.0" layoutY="244.0" text="And something third">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane fx:id="aboutWin" disable="true" prefHeight="730.0" prefWidth="1280.0" styleClass="premiumPane" stylesheets="@../../../css/backGroundPremium.css" visible="false">
+         <children>
+            <Pane fx:id="aboutPane" layoutX="454.0" layoutY="159.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="16.0" prefHeight="32.0" prefWidth="103.0" text="About us" textFill="DARKORANGE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="goBackAbout" fitHeight="24.0" fitWidth="24.0" layoutX="18.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-angle-left.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="123.0" layoutX="145.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/logotype.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="63.0" prefHeight="30.0" prefWidth="209.0" text="Author of App:" textAlignment="CENTER" textFill="#094280">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="91.0" prefHeight="30.0" prefWidth="209.0" text="Sultanay Buzaubayev" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="114.0" prefHeight="30.0" prefWidth="209.0" text="Roman Tursynbay" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="158.0" prefHeight="30.0" prefWidth="209.0" text="Our social networks:" textAlignment="CENTER" textFill="#094280">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="102.0" layoutY="186.0" onMouseClicked="#labelsulainsta" prefHeight="30.0" prefWidth="209.0" text="\@buzaubaevv" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/images.main/pngtree-instagram-icon-png-image_6315974.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="102.0" layoutY="209.0" onMouseClicked="#labelromainsta" prefHeight="30.0" prefWidth="209.0" text="\@romantursynbai" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/images.main/pngtree-instagram-icon-png-image_6315974.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="102.0" layoutY="250.0" prefHeight="30.0" prefWidth="209.0" text="Our Telegrams:" textAlignment="CENTER" textFill="#094280">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="102.0" layoutY="277.0" onMouseClicked="#labelsulatele" prefHeight="30.0" prefWidth="209.0" text="\@sult1k_sw" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/images.main/800px-Telegram_Messenger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="labelromatele" alignment="CENTER" layoutX="102.0" layoutY="300.0" onMouseClicked="#labelromatele" prefHeight="30.0" prefWidth="209.0" text="\@romanrtb" textAlignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/images.main/800px-Telegram_Messenger.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="BreatherPane" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <ImageView fitHeight="90.0" fitWidth="159.0" layoutX="14.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/start/logotype.png" />
+               </image>
+            </ImageView>
+            <Circle fill="#4b88eb63" layoutX="640.0" layoutY="360.0" radius="80.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fx:id="circle2" fill="#4b88eb5c" layoutX="640.0" layoutY="360.0" radius="150.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Circle fill="#4b88eb28" layoutX="640.0" layoutY="360.0" radius="250.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+            <Text fx:id="idtextHale" fill="WHITE" layoutX="587.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="inhale" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="hideBreath" fitHeight="45.0" fitWidth="41.0" layoutX="1190.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/images.main/icon_close.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane fx:id="followUsWin" prefHeight="730.0" prefWidth="1280.0" styleClass="premiumPane" stylesheets="@../../../css/backGroundPremium.css" visible="false">
+         <children>
+            <Pane fx:id="followUsPane" layoutX="454.0" layoutY="159.0" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #f1f4f8; -fx-background-radius: 15;">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutX="155.0" layoutY="16.0" prefHeight="32.0" prefWidth="103.0" text="Follow us" textFill="#2a6be1">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="goBackFollow" fitHeight="24.0" fitWidth="24.0" layoutX="18.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/free-icon-font-angle-left.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="123.0" layoutX="145.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/images.main/logotype.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="subscribe" layoutX="145.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#addFollowers" style="-fx-background-color: #2a6be1; -fx-background-radius: 15;" text="Subscribe" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="115.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't miss a beat!" wrappingWidth="192.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="41.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subscribe now to stay up-to-date with our latest news and updates." wrappingWidth="348.8555908203125">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

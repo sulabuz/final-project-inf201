@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controllers.LoginController">
+   <children>
+      <Pane layoutX="183.0" layoutY="36.0" prefHeight="220.0" prefWidth="931.0" style="-fx-background-color: #F0F3F8; -fx-background-radius: 10;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.1610942780971527" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="116.0" fitWidth="216.0" layoutX="364.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/start/logotype.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="446.0" layoutY="174.0" prefHeight="403.0" prefWidth="405.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" AnchorPane.rightAnchor="428.4">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.1610942780971527" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <TextField fx:id="inputLoginField" layoutX="91.0" layoutY="107.0" prefHeight="32.0" prefWidth="241.0" promptText="Enter Login" style="-fx-text-fill: #000000; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-radius: 10; -fx-border-width: 0.5;" />
+            <Button layoutX="81.0" layoutY="280.0" mnemonicParsing="false" onAction="#buttonOpenMain" prefHeight="42.0" prefWidth="118.0" style="-fx-background-radius: 10; -fx-background-color: #FF8C00;" text="Sign in" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="220.0" layoutY="281.0" mnemonicParsing="false" onAction="#buttonCancelLogin" prefHeight="42.0" prefWidth="101.0" style="-fx-background-radius: 10; -fx-border-color: #FF8C00; -fx-background-color: transparent; -fx-border-radius: 10;" text="Cancel" textAlignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <CheckBox fx:id="chekRemeber" layoutX="98.0" layoutY="194.0" mnemonicParsing="false" text="Remember me" />
+            <Button layoutX="110.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Log in" textAlignment="CENTER" />
+            <Line endX="-32.55938720703125" layoutX="201.0" layoutY="51.0" startX="-100.0" stroke="DARKORANGE" strokeWidth="2.0" />
+            <Line endX="9.4666748046875" layoutX="318.0" layoutY="51.0" startX="-129.5999755859375" stroke="DARKORANGE" strokeWidth="2.0" visible="false" />
+            <Text fx:id="idnotification" fill="WHITE" layoutX="41.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qweqweqweqweqweqwe" textAlignment="CENTER" wrappingWidth="331.162353515625">
+               <font>
+                  <Font size="14.0" />
+               </font></Text>
+            <Button alignment="CENTER" layoutX="193.0" layoutY="24.0" mnemonicParsing="false" onAction="#buttonOpenRegister" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: transparent;" text="Create Account">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button alignment="TOP_LEFT" layoutX="89.0" layoutY="221.0" mnemonicParsing="false" onAction="#buttonOpenForget" prefHeight="25.0" prefWidth="166.0" style="-fx-background-color: transparent;" text="I forget password" underline="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <PasswordField fx:id="inputPasswordField" layoutX="91.0" layoutY="148.0" onKeyTyped="#setPass" prefHeight="32.0" prefWidth="241.0" promptText="Enter Password" style="-fx-text-fill: #000000; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-radius: 10; -fx-border-width: 0.5;" />
+            <ImageView fx:id="yourImageView" fitHeight="25.0" fitWidth="18.0" layoutX="339.0" layoutY="156.0" onMouseClicked="#imageBtnShowPass" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/login/eye-off.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="yourImageView2" disable="true" fitHeight="25.0" fitWidth="18.0" layoutX="339.0" layoutY="156.0" onMouseClicked="#imageBtnClosePass" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../images/login/eye-on.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="inputPasstextfeild" disable="true" layoutX="91.0" layoutY="148.0" onKeyTyped="#setPass" prefHeight="32.0" prefWidth="241.0" style="-fx-text-fill: #000000; -fx-background-color: transparent; -fx-border-color: #000000; -fx-border-radius: 10; -fx-border-width: 0.5;" visible="false" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
